@@ -6,8 +6,10 @@ import java.awt.Color;
 public class dashboard extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-    public dashboard() {
+    
+    public dashboard(String name) {
         initComponents();
+        lblUser.setText("Welcome, " + name);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -27,6 +29,7 @@ public class dashboard extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -241,6 +244,11 @@ public class dashboard extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 130, 30));
+
+        lblUser.setFont(new java.awt.Font("Serif", 3, 14)); // NOI18N
+        lblUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 190, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 190, 410));
 
@@ -528,7 +536,7 @@ public class dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new dashboard().setVisible(true);
+                
             }
         });
     }
@@ -579,5 +587,6 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }
