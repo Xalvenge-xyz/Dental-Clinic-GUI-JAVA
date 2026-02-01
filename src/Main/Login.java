@@ -270,14 +270,14 @@ public class Login extends javax.swing.JFrame {
                         customerDash.setVisible(true);
                         break;
                     case "staff":
-//                        StaffDashboard staffDash = new StaffDashboard(name); // create this JFrame
+//                        StaffDashboard staffDash = new StaffDashboard(name);
 //                        this.dispose();
 //                        staffDash.setVisible(true);
                         break;
                     case "admin":
-//                        AdminDashboard adminDash = new AdminDashboard(name); // create this JFrame
-//                        this.dispose();
-//                        adminDash.setVisible(true);
+                        Admin adminDash = new Admin(name); 
+                        this.dispose();
+                        adminDash.setVisible(true);
                         break;
                     default:
                         JOptionPane.showMessageDialog(this, "Unknown role: " + role);

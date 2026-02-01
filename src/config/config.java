@@ -16,6 +16,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Random;
+import net.proteanit.sql.DbUtils;
 
 
 public class config {
@@ -312,7 +313,7 @@ public static String hashPassword(String password) {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail, "Dental Care")); // sender name
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            message.setSubject("Your LogiTrak OTP Code");
+            message.setSubject("Your Dental Care OTP Code");
             message.setText("Your OTP code is: " + otp);
 
             Transport.send(message);
@@ -323,5 +324,18 @@ public static String hashPassword(String password) {
             return false;
         }
     }
+    
+    public void displayData(String sql, javax.swing.JTable table) {
+    try (Connection conn = connectDB();
+         PreparedStatement pstmt = conn.prepareStatement(sql);
+         ResultSet rs = pstmt.executeQuery()) {
+        
+        // This line automatically maps the Resultset to your JTable
+        table.setModel(DbUtils.resultSetToTableModel(rs));
+        
+    } catch (SQLException e) {
+        System.out.println("Error displaying data: " + e.getMessage());
+    }
+}
 
 }
